@@ -6,6 +6,10 @@ import { AiFillFacebook, AiOutlineTwitter } from "react-icons/ai";
 export default function ArticlePreview() {
   const [popOverOpen, setPopOverOpen] = useState(false);
 
+  const handleClick = () => {
+    setPopOverOpen(!popOverOpen);
+  };
+
   return (
     <div>
       {/* container */}
@@ -52,7 +56,10 @@ export default function ArticlePreview() {
                 </div>
               </div>
               <div>
-                <button className="rounded-full bg-c-lightGrayishBlue text-c-desaturatedDarkBlue text-3xl px-2 py-2">
+                <button
+                  className="rounded-full bg-c-lightGrayishBlue text-c-desaturatedDarkBlue text-3xl px-2 py-2"
+                  onClick={handleClick}
+                >
                   <RiShareForwardFill />
                   <span className="sr-only">Share</span>
                 </button>
@@ -61,9 +68,13 @@ export default function ArticlePreview() {
           </div>
           {popOverOpen && (
             // pop over content
-            <div className="bg-c-veryDarkGrayishBlue absolute bottom-0 w-full">
+            <div
+              className={`${
+                !popOverOpen && "animate-slide-out-bottom"
+              } bg-c-veryDarkGrayishBlue absolute bottom-0 w-full animate-slide-in-bottom`}
+            >
               {/* pop over items */}
-              <div className="flex flex-row justify-between items-center px-[2.72rem] py-4">
+              <div className="flex flex-row justify-between items-center px-[2.72rem] py-8">
                 <div>
                   <h2 className="tracking-[.4rem] uppercase text-c-grayishBlue">
                     Share
@@ -84,7 +95,10 @@ export default function ArticlePreview() {
                   </button>
                 </div>
                 <div>
-                  <button className="rounded-full bg-c-desaturatedDarkBlue text-white text-3xl px-2 py-2">
+                  <button
+                    className="rounded-full bg-c-desaturatedDarkBlue text-white text-3xl px-2 py-2"
+                    onClick={handleClick}
+                  >
                     <RiShareForwardFill />
                     <span className="sr-only">Share</span>
                   </button>
