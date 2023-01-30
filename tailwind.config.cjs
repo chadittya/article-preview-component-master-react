@@ -14,18 +14,30 @@ module.exports = {
         "cfw-700": "700",
       },
       animation: {
-        "slide-in-bottom":
-          "slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        "slide-in-fwd-bottom":
+          "slide-in-fwd-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-out-fwd-bottom":
+          "slide-out-fwd-bottom 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both",
       },
       keyframes: {
-        "slide-in-bottom": {
+        "slide-in-fwd-bottom": {
           "0%": {
-            transform: "translateY(1000px)",
+            transform: "translateZ(-1400px) translateY(800px)",
             opacity: "0",
           },
           to: {
-            transform: "translateY(0)",
+            transform: "translateZ(0) translateY(0)",
             opacity: "1",
+          },
+        },
+        "slide-out-fwd-bottom": {
+          "0%": {
+            transform: "translateZ(0) translateY(0)",
+            opacity: "1",
+          },
+          to: {
+            transform: "translateZ(600px) translateY(300px)",
+            opacity: "0",
           },
         },
       },

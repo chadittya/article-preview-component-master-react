@@ -4,10 +4,10 @@ import { RiPinterestFill, RiShareForwardFill } from "react-icons/ri";
 import { AiFillFacebook, AiOutlineTwitter } from "react-icons/ai";
 
 export default function ArticlePreview() {
-  const [popOverOpen, setPopOverOpen] = useState(false);
+  const [buttonOpen, setButtonOpen] = useState(false);
 
-  const handleClick = () => {
-    setPopOverOpen(!popOverOpen);
+  const handleClickOpen = () => {
+    setButtonOpen(!buttonOpen);
   };
 
   return (
@@ -58,7 +58,7 @@ export default function ArticlePreview() {
               <div>
                 <button
                   className="rounded-full bg-c-lightGrayishBlue text-c-desaturatedDarkBlue text-3xl px-2 py-2"
-                  onClick={handleClick}
+                  onClick={handleClickOpen}
                 >
                   <RiShareForwardFill />
                   <span className="sr-only">Share</span>
@@ -66,13 +66,9 @@ export default function ArticlePreview() {
               </div>
             </div>
           </div>
-          {popOverOpen && (
+          {buttonOpen && (
             // pop over content
-            <div
-              className={`${
-                !popOverOpen && "animate-slide-out-bottom"
-              } bg-c-veryDarkGrayishBlue absolute bottom-0 w-full animate-slide-in-bottom`}
-            >
+            <div className=" bg-c-veryDarkGrayishBlue absolute bottom-0 w-full animate-slide-in-fwd-bottom">
               {/* pop over items */}
               <div className="flex flex-row justify-between items-center px-[2.72rem] py-8">
                 <div>
@@ -97,7 +93,7 @@ export default function ArticlePreview() {
                 <div>
                   <button
                     className="rounded-full bg-c-desaturatedDarkBlue text-white text-3xl px-2 py-2"
-                    onClick={handleClick}
+                    onClick={handleClickOpen}
                   >
                     <RiShareForwardFill />
                     <span className="sr-only">Share</span>
